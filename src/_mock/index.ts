@@ -42,6 +42,12 @@ export const initialEssentialSession: ISessionItem[] = [
     title: "Story 4",
     subtitle: "4000 Essential English Word 2",
   },
+  {
+    id: "essentialSession5",
+    unitId: "essentialUnit2",
+    title: "Story 5",
+    subtitle: "4000 Essential English Word 2",
+  },
 ];
 export const initialEssentialStoryEn: IStoryItem[] = [
   {
@@ -399,5 +405,138 @@ export const initialEssentialStoryEn: IStoryItem[] = [
     sessionId: "essentialSession4",
     en: "worldwide",
     vn: "toàn cầu",
+  },
+  // story 5
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "agricultural",
+    vn: "nông nghiệp",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "beehive",
+    vn: "tổ ong",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "brilliant",
+    vn: "xuất sắc",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "colony",
+    vn: "thuộc địa",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "come upon",
+    vn: "bắt gặp",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "cut off",
+    vn: "cắt đứt",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "distinctive",
+    vn: "đặc biệt",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "markings",
+    vn: "dấu vết",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "ecology",
+    vn: "sinh thái học",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "farmland",
+    vn: "đất canh tác",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "grassland",
+    vn: "đồng cỏ",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "focus efforts",
+    vn: "tập trung nỗ lực vào",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "harmless",
+    vn: "vô hại",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "hemisphere",
+    vn: "bán cầu",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "hostile",
+    vn: "khắc nghiệt",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "indicate",
+    vn: "chỉ ra",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "extinction",
+    vn: "tuyệt chủng",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "observe",
+    vn: "quan sát",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "patterns",
+    vn: "mẫu",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "poison",
+    vn: "chất độc",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "source of food",
+    vn: "nguồn thức ăn",
+  },
+  {
+    id: uuidv4(),
+    sessionId: "essentialSession5",
+    en: "underestimate",
+    vn: "đánh giá thấp",
   },
 ];
