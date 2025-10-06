@@ -1,12 +1,9 @@
 import { initialEssentialSession } from "@/_mock";
-import { useRouter } from "@/routes/hooks/use-router";
-import { paths } from "@/routes/paths";
 import { useState } from "react";
 import { useParams } from "react-router";
 import OptionPopup from "./components/option-popup";
 
 const SessionView = () => {
-  const router = useRouter();
   const { id } = useParams<{ id: string }>();
   const [search, setSearch] = useState("");
   const [sessionId, setSessionId] = useState("");

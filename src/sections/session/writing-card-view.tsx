@@ -13,6 +13,7 @@ import {
 
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { IStoryItem } from "@/interfaces/common";
 
 const WritingCardView: React.FC = () => {
   const router = useRouter();
@@ -21,16 +22,22 @@ const WritingCardView: React.FC = () => {
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
   const [answer, setAnswer] = useState<string>("");
   const [status, setStatus] = useState<"wrong" | "correct" | null>(null);
+  const [filterData, setFilterData] = useState<IStoryItem[]>([]);
 
   const itemIdxRef = useRef(itemIdx);
   const answerRef = useRef(answer);
   const submittingRef = useRef(false);
   const showTimeoutRef = useRef<number | null>(null);
 
-  const filterData = initialEssentialStoryEn.filter(
-    (item) => item.sessionId === id
-  );
+  useEffect(() => {
+    const data = initialEssentialStoryEn.filter(
+      (item) => item.sessionId === id
+    );
 
+    if (data) {
+      setFilterData(data);
+    }
+  }, [id]);
   useEffect(() => {
     itemIdxRef.current = itemIdx;
   }, [itemIdx]);
@@ -66,6 +73,13 @@ const WritingCardView: React.FC = () => {
     setItemIdx(0);
     setAnswer("");
     setStatus(null);
+    const data = initialEssentialStoryEn.filter(
+      (item) => item.sessionId === id
+    );
+
+    if (data) {
+      setFilterData(data);
+    }
   }, []);
 
   // prev (lùi 1 item)
@@ -81,8 +95,7 @@ const WritingCardView: React.FC = () => {
   // next (tiến 1 item)
   const handleNext = useCallback(() => {
     setItemIdx((prev) => {
-      // nếu đã cuối thì không tăng nữa
-      const next = Math.min(prev + 1, filterData.length - 1);
+      const next = Math.max(prev + 1, 0);
       return next;
     });
     setAnswer("");
@@ -93,34 +106,35 @@ const WritingCardView: React.FC = () => {
   const handleSubmit = useCallback(() => {
     if (submittingRef.current) return;
     submittingRef.current = true;
-
     try {
       // lấy giá trị hiện tại từ refs
       const idx = itemIdxRef.current;
       const correct = filterData[idx].en.trim().toLowerCase();
       const user = answerRef.current.trim().toLowerCase();
-
       if (user === correct) {
         setStatus("correct");
 
+        if (itemIdx >= total - 1) return;
         setTimeout(() => {
-          setItemIdx((prev) => Math.min(prev + 1, filterData.length - 1));
-          setAnswer("");
-          setStatus(null);
+          handleNext();
         }, 220);
       } else {
         setStatus("wrong");
         showAnswerOnce(1000);
+        setFilterData((prev) => [...prev, filterData[idx]]);
       }
     } finally {
       setTimeout(() => {
         submittingRef.current = false;
       }, 200);
     }
-  }, [showAnswerOnce]);
+  }, [showAnswerOnce, filterData, itemIdx]);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Shift") {
+        console.log("object");
+      }
       if (e.key === "Enter") {
         e.preventDefault();
         e.stopPropagation();
