@@ -1,4 +1,3 @@
-import { useRouter } from "@/routes/hooks/use-router";
 import React from "react";
 
 interface Props {
