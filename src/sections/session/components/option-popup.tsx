@@ -48,6 +48,15 @@ const OptionPopup = ({ open, sessionId, onClose }: Props) => {
                   Writing
                 </h2>{" "}
               </div>{" "}
+              <div className="bg-gray-50 rounded-xl shadow-md p-6 cursor-pointer hover:bg-green-50 hover:shadow-lg transition">
+                {" "}
+                <h2
+                  className="text-lg font-semibold text-gray-800"
+                  onClick={() => router.push(paths.fillInLetterCard(sessionId))}
+                >
+                  Fill in letters
+                </h2>{" "}
+              </div>{" "}
             </div>{" "}
           </div>{" "}
         </div>

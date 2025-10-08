@@ -14,4 +14,5 @@ export interface IStoryItem {
   sessionId: string;
   en: string;
   vn: string;
+  exampleVn?: string;
 }
