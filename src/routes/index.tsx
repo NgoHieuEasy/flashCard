@@ -7,6 +7,9 @@ const UnitPage = lazy(() => import("@/pages/unit/index"));
 const SessionPage = lazy(() => import("@/pages/session/index"));
 const FlashCardPage = lazy(() => import("@/pages/session/flash-card"));
 const WritingCardPage = lazy(() => import("@/pages/session/writing-card"));
+const FillInLetterCardPage = lazy(
+  () => import("@/pages/session/fill-in-letter")
+);
 
 export function Router() {
   return useRoutes([
@@ -40,6 +43,10 @@ export function Router() {
             {
               path: "writingCard/:id",
               element: <WritingCardPage />,
+            },
+            {
+              path: "fillInLetter/:id",
+              element: <FillInLetterCardPage />,
             },
           ],
         },
