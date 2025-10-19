@@ -7,6 +7,7 @@ const SessionView = () => {
   const { id } = useParams<{ id: string }>();
   const [search, setSearch] = useState("");
   const [sessionId, setSessionId] = useState("");
+  const [unitId, setUnitId] = useState("");
   const [open, setOpen] = useState({
     option: false,
   });
@@ -45,6 +46,7 @@ const SessionView = () => {
               className="text-xl font-bold text-gray-800 hover:underline hover:cursor-pointer"
               onClick={() => {
                 setSessionId(card.id);
+                setUnitId(card.unitId);
                 setOpen((prev) => ({ ...prev, option: true }));
               }}
             >
@@ -58,6 +60,7 @@ const SessionView = () => {
         <OptionPopup
           open={open.option}
           sessionId={sessionId}
+          unitId={unitId}
           onClose={() => setOpen((prev) => ({ ...prev, option: false }))}
         />
       }

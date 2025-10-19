@@ -15,4 +15,5 @@ export interface IStoryItem {
   en: string;
   vn: string;
   exampleVn?: string;
+  bookId?: string;
 }

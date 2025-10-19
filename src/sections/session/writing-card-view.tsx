@@ -12,11 +12,13 @@ import {
 } from "lucide-react";
 
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { IStoryItem } from "@/interfaces/common";
 
 const WritingCardView: React.FC = () => {
   const router = useRouter();
+  const location = useLocation();
+  const unitId = location?.state?.unitId;
   const { id } = useParams<{ id: string }>();
   const [itemIdx, setItemIdx] = useState<number>(0);
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
@@ -29,9 +31,11 @@ const WritingCardView: React.FC = () => {
   const submittingRef = useRef(false);
   const showTimeoutRef = useRef<number | null>(null);
 
+  console.log("unitId",location?.state)
+
   useEffect(() => {
     const data = initialEssentialStoryEn.filter(
-      (item) => item.sessionId === id
+      (item) => item.sessionId === id && item.bookId === unitId
     );
 
     if (data) {
@@ -74,7 +78,7 @@ const WritingCardView: React.FC = () => {
     setAnswer("");
     setStatus(null);
     const data = initialEssentialStoryEn.filter(
-      (item) => item.sessionId === id
+      (item) => item.sessionId === id && item.bookId === unitId
     );
 
     if (data) {

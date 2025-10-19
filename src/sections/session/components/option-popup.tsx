@@ -4,11 +4,13 @@ import { paths } from "@/routes/paths";
 interface Props {
   open: boolean;
   sessionId: string;
+  unitId: string;
   onClose: () => void;
 }
 
-const OptionPopup = ({ open, sessionId, onClose }: Props) => {
+const OptionPopup = ({ open, sessionId, unitId, onClose }: Props) => {
   const router = useRouter();
+
   return (
     <div>
       {open && (
@@ -43,7 +45,11 @@ const OptionPopup = ({ open, sessionId, onClose }: Props) => {
                 {" "}
                 <h2
                   className="text-lg font-semibold text-gray-800"
-                  onClick={() => router.push(paths.writingCard(sessionId))}
+                  onClick={() =>
+                    router.replaceParams(paths.writingCard(sessionId), {
+                      unitId: unitId,
+                    })
+                  }
                 >
                   Writing
                 </h2>{" "}
@@ -52,7 +58,11 @@ const OptionPopup = ({ open, sessionId, onClose }: Props) => {
                 {" "}
                 <h2
                   className="text-lg font-semibold text-gray-800"
-                  onClick={() => router.push(paths.fillInLetterCard(sessionId))}
+                  onClick={() =>
+                    router.replaceParams(paths.fillInLetterCard(sessionId), {
+                      unitId: unitId,
+                    })
+                  }
                 >
                   Fill in letters
                 </h2>{" "}
