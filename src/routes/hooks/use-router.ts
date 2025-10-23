@@ -13,6 +13,8 @@ export function useRouter() {
       refresh: () => navigate(0),
       push: (href: string) => navigate(href),
       replace: (href: string) => navigate(href, { replace: true }),
+      replaceParams: (href: string, state?: any) =>
+        navigate(href, { replace: false, state }),
     }),
     [navigate]
   );
